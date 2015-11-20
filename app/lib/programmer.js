@@ -1,4 +1,8 @@
-class Programmer{
+import Ember from 'ember';
+//don't need full path if it's a module. use it to
+//be able to call Ember library on things. 
+
+export default class Programmer{
   constructor(name, language = "Ruby"){
     this.name = name;
     this.language = language;
@@ -8,11 +12,12 @@ class Programmer{
   }
 }
 
-export function addJavaScript(array){
-  var newList = array.slice(0);
-  newList.push("JavaScript");
-  return newList;
+export function addJavaScript(languages){
+  // var newList = array.slice(0);
+  // newList.push("JavaScript");
+  // return newList;
+  let newArray = Ember.copy(languages);
+  return newArray.pushObject("JavaScript");
 }
 
-export default Programmer;
 export var bestLanguages = ["Ruby", "Elixir"];
